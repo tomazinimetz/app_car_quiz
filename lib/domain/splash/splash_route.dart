@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:app/domain/finish/finish_route.dart';
-import 'package:app/domain/quiz/models/question_model.dart';
-import 'package:app/domain/quiz/models/quiz_model.dart';
 import 'package:app/domain/quiz/quiz_route.dart';
+import 'package:app/domain/quiz/repository/quiz_repository_impl.dart';
 import 'package:app/shared/services/hive_service_impl.dart';
+import 'package:app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,9 +34,8 @@ class _SplashRouteState extends State<SplashRoute> {
   Future init() async {
     final hasQuiz = HiveServiceImpl().get("quiz") != null;
     if (!hasQuiz) {
-      //todo add await
-      fetchQuiz();
-    }else{
+      await fetchQuiz();
+    } else {
       _initialRoute = FinishRoute.name;
     }
   }
@@ -51,22 +50,16 @@ class _SplashRouteState extends State<SplashRoute> {
       );
 
   Widget _buildSplash(BuildContext context) => Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        color: Colors.black,
+        height: double.infinity,
+        width: double.infinity,
         child: Center(
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.20,
-            width: MediaQuery.of(context).size.width * 0.20,
-            color: Colors.red,
-            child: Image.asset('splash_icon'),
+            width: MediaQuery.of(context).size.width * 0.2,
+            height: MediaQuery.of(context).size.width * 0.2,
+            child: Image.asset(Assets.splash),
           ),
         ),
       );
 
-  void fetchQuiz() async {
-    final quiz = QuizModel(1, "2", List<Question>());
-    await HiveServiceImpl().saveData('quiz', quiz);
-  }
-  //Future<QuizModel> fetchQuiz() async => await QuizRepositoryImpl().fetchQuiz();
+  Future fetchQuiz() async => await QuizRepositoryImpl().fetchQuiz();
 }
