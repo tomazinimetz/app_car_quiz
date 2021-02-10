@@ -1,0 +1,55 @@
+{
+  "questions":[
+     {
+      "question": "Qual é o país de origem da BMW?",
+      "options": [
+      "Inglaterra",
+      "USA",
+      "Alemanha",
+      "Japão"
+    ],
+      "answer": "Alemanha"
+    },
+   {
+      "question": "Qual é o país de origem da Toyota?",
+      "options": [
+      "Inglaterra",
+      "USA",
+      "Alemanha",
+      "Japão"
+    ],
+      "answer": "Japão"
+    },
+    {
+      "question": "Qual é o país de origem da Mini?",
+      "options": [
+      "Inglaterra",
+      "USA",
+      "Alemanha",
+      "Japão"
+    ],
+      "answer": "Inglaterra"
+    },
+    {
+      "question": "Qual é o país de origem da General Motors?",
+      "options": [
+      "Inglaterra",
+      "USA",
+      "Alemanha",
+      "Japão"
+    ],
+      "answer": "USA"
+    },
+    {
+      "question": "Qual é o país de origem da Rolls-Royce?",
+      "options": [
+      "Inglaterra",
+      "USA",
+      "Alemanha",
+      "Japão"
+    ],
+      "answer": "Inglaterra"
+    }
+  ],
+  "current_question": 0
+}

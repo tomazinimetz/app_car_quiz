@@ -6,16 +6,20 @@ part '../quiz_model.g.dart';
 @HiveType(typeId: 0)
 class QuizModel extends HiveObject {
   QuizModel(
-    this.id,
     this.currentQuestion,
     this.questions,
   );
 
-  @HiveField(0)
-  final int id;
   @HiveField(1)
-  final String currentQuestion;
+  String currentQuestion;
   @HiveField(2)
-  final List<Question> questions;
-}
+  List<Question> questions;
 
+//todo: change to Map<String, dynamic>
+  QuizModel.fromJson(dynamic json)
+      : currentQuestion = json["current_question"].toString(),
+        questions = getQuestionsByJson(json["questions"]);
+
+  static List<Question> getQuestionsByJson(List<dynamic> json) =>
+      json.map((it) => Question.fromJson(it)).toList();
+}

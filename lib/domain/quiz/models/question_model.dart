@@ -19,4 +19,16 @@ class Question extends HiveObject {
   final List<String> options;
   @HiveField(3)
   final String answer;
+
+  Question.fromJson(Map<String, dynamic> json)
+      : id = json["id"],
+        question = json["question"],
+        options = getOptionsByJson(json["options"]),
+        answer = json["answer"];
+
+  static List<String> getOptionsByJson(List<dynamic> json) {
+    var options = List<String>();
+    json.map((it) => options.add(it));
+    return options;
+  }
 }
