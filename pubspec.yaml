@@ -27,4 +27,10 @@ flutter:
   uses-material-design: true
   assets:
     - .env
+    - assets/data.json
     - assets/splash_icon.jpg
+    - assets/bmw_logo.png
+    - assets/toyota_logo.png
+    - assets/rolls_royce_logo.png
+    - assets/general_motors_logo.png
+    - assets/mini_logo.png
