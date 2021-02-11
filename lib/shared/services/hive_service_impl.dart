@@ -1,6 +1,7 @@
 import 'package:app/shared/services/hive_service.dart';
 import 'package:hive/hive.dart';
 
+//TODO: fazer testes integrados
 class HiveServiceImpl extends HiveService {
   @override
   Future saveData(String boxName, data) async {

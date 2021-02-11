@@ -1,17 +1,17 @@
-# app
 
-A new Flutter project.
+# Flutter Car Quiz
 
+This is a quiz where the user should to choose between the main car builders
+and correlated it with their origin countries.
+  
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prepare you environment
 
-A few resources to get you started if this is your first Flutter project:
+In terminal, run:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+`flutter pub get`
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-#app_car_quiz
+`flutter pub run build_runner`
+
+Create the `.env` file , based on `.env.example.`
