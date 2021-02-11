@@ -14,7 +14,8 @@ class QuizState with ChangeNotifier {
 
   String get question => questions[currentQuestion].question;
   String get correctAnswer => questions[currentQuestion].answer;
-  bool get isFinished => currentQuestion >= questions.length - 1;
+  bool get isFinished => currentQuestion == questions.length;
+  double get scorePercentage => (scoreKeeper / questions.length) * 100;
 
   void init(QuizModel quiz) {
     questions = quiz.questions;
@@ -22,26 +23,20 @@ class QuizState with ChangeNotifier {
     shuffle();
   }
 
-  shuffle() {
+  void shuffle() {
     questions.shuffle();
   }
 
   void nextQuestion() {
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion <= questions.length - 1) {
       currentQuestion++;
     }
+    notifyListeners();
   }
 
   void checkAnswer(String userPickedAnswer) {
-    if (isFinished) {
-      reset();
-      clearScore();
-    } else {
-      if (userPickedAnswer == correctAnswer) {
-        scoreKeeper++;
-      }
-      print(scoreKeeper);
-      nextQuestion();
+    if (userPickedAnswer == correctAnswer) {
+      scoreKeeper++;
     }
     notifyListeners();
   }
@@ -54,5 +49,16 @@ class QuizState with ChangeNotifier {
   void clearScore() {
     scoreKeeper = 0;
     notifyListeners();
+  }
+
+  void finish() {
+    reset();
+    clearScore();
+    shuffle();
+  }
+
+  void reply(index) {
+    checkAnswer(questions[currentQuestion].options[index]);
+    nextQuestion();
   }
 }
