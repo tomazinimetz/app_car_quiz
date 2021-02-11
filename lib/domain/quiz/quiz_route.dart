@@ -1,6 +1,8 @@
+import 'package:app/domain/quiz/models/quiz_model.dart';
 import 'package:app/domain/quiz/quiz_screen.dart';
 import 'package:app/domain/quiz/quiz_state.dart';
 import 'package:app/domain/quiz/score_screen.dart';
+import 'package:app/domain/quiz/service/quiz_service_impl.dart';
 import 'package:app/shared/services/hive_service_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,13 +19,17 @@ class QuizRoute extends StatefulWidget {
 class _QuizRouteState extends State<QuizRoute> {
   QuizState state;
   Size screen;
+  QuizModel quiz;
 
   @override
-  void didChangeDependencies() {
+  Future didChangeDependencies() async {
     super.didChangeDependencies();
     if (state == null) {
       state = Provider.of<QuizState>(context);
-      final quiz = HiveServiceImpl().get('quiz').values.first;
+      if (HiveServiceImpl().get('quiz') == null) {
+        await QuizServiceImpl().fetchQuiz();
+      }
+      quiz = HiveServiceImpl().get('quiz').values.first;
       state.init(quiz);
     }
   }

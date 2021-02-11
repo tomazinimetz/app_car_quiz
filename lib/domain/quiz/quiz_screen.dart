@@ -13,31 +13,28 @@ class QuizScreen extends StatelessWidget {
   final QuizState state;
 
   @override
-  Widget build(BuildContext context) {
-    Size screen = MediaQuery.of(context).size;
-    return Column(children: [
-      Container(
-        height: MediaQuery.of(context).size.height * 0.38,
-        child: QuestionCard(
-          asset: state.questions[state.currentQuestion].asset,
-          question: state.questions[state.currentQuestion].question,
+  Widget build(BuildContext context) => Column(children: [
+        Container(
+          height: MediaQuery.of(context).size.height * 0.38,
+          child: QuestionCard(
+            asset: state.questions[state.currentQuestion].asset,
+            question: state.questions[state.currentQuestion].question,
+          ),
         ),
-      ),
-      Expanded(
-        child: GridView.count(
-          crossAxisCount: 2,
-          children: List.generate(
-              state.questions[state.currentQuestion].options.length, (index) {
-            return Container(
-              margin: EdgeInsets.all(20),
-              child: QuizOptionCard(
-                option: state.questions[state.currentQuestion].options[index],
-                onTap: () => state.reply(index),
-              ),
-            );
-          }),
+        Expanded(
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: List.generate(
+                state.questions[state.currentQuestion].options.length, (index) {
+              return Container(
+                margin: EdgeInsets.all(20),
+                child: QuizOptionCard(
+                  option: state.questions[state.currentQuestion].options[index],
+                  onTap: () => state.reply(index),
+                ),
+              );
+            }),
+          ),
         ),
-      ),
-    ]);
-  }
+      ]);
 }

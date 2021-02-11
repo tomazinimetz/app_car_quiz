@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:app/domain/finish/finish_route.dart';
 import 'package:app/domain/first/first_route.dart';
-import 'package:app/domain/quiz/repository/quiz_repository_impl.dart';
+import 'package:app/domain/quiz/service/quiz_service_impl.dart';
 import 'package:app/shared/services/hive_service_impl.dart';
 import 'package:app/utils/assets.dart';
 import 'package:flutter/material.dart';
@@ -32,12 +31,9 @@ class _SplashRouteState extends State<SplashRoute> {
   }
 
   Future init() async {
-    //todo ajeitar isso aqui
     final hasQuiz = HiveServiceImpl().get("quiz") != null;
     if (!hasQuiz) {
       await fetchQuiz();
-    } else {
-      _initialRoute = FinishRoute.name;
     }
   }
 
@@ -62,5 +58,5 @@ class _SplashRouteState extends State<SplashRoute> {
         ),
       );
 
-  Future fetchQuiz() async => await QuizRepositoryImpl().fetchQuiz();
+  Future fetchQuiz() async => await QuizServiceImpl().fetchQuiz();
 }
