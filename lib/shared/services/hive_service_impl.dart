@@ -8,12 +8,12 @@ class HiveServiceImpl extends HiveService {
       await Hive.box(boxName).put(boxName, data);
     } else {
       final box = await Hive.openBox(boxName);
-      box.put(boxName, data);
+      await box.put(boxName, data);
     }
   }
 
   @override
-  Box get(String boxName) {
+  Box<dynamic> get(String boxName) {
     if (Hive.isBoxOpen(boxName)) {
       return Hive.box(boxName);
     }

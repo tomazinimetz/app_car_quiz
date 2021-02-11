@@ -1,54 +1,64 @@
 {
   "questions":[
      {
-      "question": "Qual é o país de origem da BMW?",
+      "id":"0",
+      "question": "Qual é o país de origem da?",
       "options": [
       "Inglaterra",
       "USA",
       "Alemanha",
       "Japão"
     ],
-      "answer": "Alemanha"
+      "answer": "Alemanha",
+      "asset":"bmw_logo.png"
     },
    {
-      "question": "Qual é o país de origem da Toyota?",
+      "id":"1",
+      "question": "Qual é o país de origem da?",
       "options": [
       "Inglaterra",
       "USA",
       "Alemanha",
       "Japão"
     ],
-      "answer": "Japão"
+      "answer": "Japão",
+      "asset":"toyota_logo.png"
     },
     {
-      "question": "Qual é o país de origem da Mini?",
+      "id":"2",
+      "question": "Qual é o país de origem da?",
       "options": [
       "Inglaterra",
       "USA",
       "Alemanha",
       "Japão"
     ],
-      "answer": "Inglaterra"
+      "answer": "Inglaterra",
+      "asset":"mini_logo.png"
     },
     {
-      "question": "Qual é o país de origem da General Motors?",
+      "id":"3",
+      "question": "Qual é o país de origem da?",
       "options": [
       "Inglaterra",
       "USA",
       "Alemanha",
       "Japão"
     ],
-      "answer": "USA"
+      "answer": "USA",
+      "asset":"general_motors_logo.png"
     },
     {
-      "question": "Qual é o país de origem da Rolls-Royce?",
+      "id":"4",
+      "question": "Qual é o país de origem da?",
       "options": [
       "Inglaterra",
       "USA",
       "Alemanha",
       "Japão"
     ],
-      "answer": "Inglaterra"
+      "answer": "Inglaterra",
+      "asset":"rolls_royce_logo.png"
     }
   ],
   "current_question": 0

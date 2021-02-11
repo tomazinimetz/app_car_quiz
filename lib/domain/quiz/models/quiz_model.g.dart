@@ -1,41 +1,35 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'models/question_model.dart';
+part of 'quiz_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class QuestionAdapter extends TypeAdapter<Question> {
+class QuizModelAdapter extends TypeAdapter<QuizModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 0;
 
   @override
-  Question read(BinaryReader reader) {
+  QuizModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Question(
-      fields[0] as int,
-      fields[1] as String,
-      (fields[2] as List)?.cast<String>(),
-      fields[3] as String,
+    return QuizModel(
+      currentQuestion: fields[1] as String,
+      questions: (fields[2] as List)?.cast<Question>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, Question obj) {
+  void write(BinaryWriter writer, QuizModel obj) {
     writer
-      ..writeByte(4)
-      ..writeByte(0)
-      ..write(obj.id)
-      ..writeByte(1)
-      ..write(obj.question)
       ..writeByte(2)
-      ..write(obj.options)
-      ..writeByte(3)
-      ..write(obj.answer);
+      ..writeByte(1)
+      ..write(obj.currentQuestion)
+      ..writeByte(2)
+      ..write(obj.questions);
   }
 
   @override
@@ -44,7 +38,7 @@ class QuestionAdapter extends TypeAdapter<Question> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is QuestionAdapter &&
+      other is QuizModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

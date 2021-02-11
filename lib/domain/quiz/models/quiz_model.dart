@@ -1,14 +1,14 @@
 import 'package:app/domain/quiz/models/question_model.dart';
 import 'package:hive/hive.dart';
 
-part '../quiz_model.g.dart';
+part 'quiz_model.g.dart';
 
 @HiveType(typeId: 0)
 class QuizModel extends HiveObject {
-  QuizModel(
+  QuizModel({
     this.currentQuestion,
     this.questions,
-  );
+  });
 
   @HiveField(1)
   String currentQuestion;

@@ -14,5 +14,5 @@ abstract class HiveService {
 
   Future saveData(String boxName, dynamic data);
   void deleteBoxes();
-  Box get(String boxName);
+  Box<dynamic> get(String boxName);
 }
