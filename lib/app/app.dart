@@ -1,11 +1,17 @@
+import 'package:app/app/dependencies.dart';
 import 'package:app/app/providers.dart';
 import 'package:app/domain/splash/splash_route.dart';
 import 'package:app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
+  App() {
+    final getIt = GetIt.I;
+    Dependencies.register(getIt);
+  }
   @override
   Widget build(BuildContext context) => MultiProvider(
         providers: Providers.all(),

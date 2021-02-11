@@ -1,3 +1,3 @@
 abstract class QuizRepository {
-   Future fetchQuiz();
+  Future fetchQuiz();
 }
