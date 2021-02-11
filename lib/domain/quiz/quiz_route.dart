@@ -32,6 +32,7 @@ class _QuizRouteState extends State<QuizRoute> {
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
           child: Container(
+            height: MediaQuery.of(context).size.height,
             child: state.isFinished
                 ? ScoreScreen(state: state)
                 : QuizScreen(state: state),

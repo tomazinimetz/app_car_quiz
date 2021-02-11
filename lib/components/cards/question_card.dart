@@ -13,22 +13,16 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: Center(
-              child: Text(
-                question,
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-                textAlign: TextAlign.center,
+            padding: EdgeInsets.symmetric(vertical:10),
+            child: Text(
+              question,
+              style: TextStyle(
+                fontSize: 30,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
-          Expanded(
-            child: Container(
-              child: Image.asset(asset),
-            ),
-          ),
+          Expanded(child: Image.asset(asset)),
         ],
       );
 }

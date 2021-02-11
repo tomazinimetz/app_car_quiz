@@ -13,16 +13,17 @@ class QuizOptionCard extends StatelessWidget {
   final Function onTap;
 
   @override
-  Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.all(15),
-        child: InkWell(
-          onTap: onTap,
-          child: Card(
-            child: Center(
-              child: Text(
-                option,
-                style: Theme.of(context).textTheme.headline5,
-              ),
+  Widget build(BuildContext context) => InkWell(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Center(
+            child: Text(
+              option,
+              style: Theme.of(context).textTheme.headline5,
             ),
           ),
         ),

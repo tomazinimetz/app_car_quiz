@@ -17,24 +17,25 @@ class QuizScreen extends StatelessWidget {
     Size screen = MediaQuery.of(context).size;
     return Column(children: [
       Container(
-        width: screen.width,
-        height: screen.height * 0.35,
-        padding: EdgeInsets.all(10),
+        height: MediaQuery.of(context).size.height * 0.38,
         child: QuestionCard(
           asset: state.questions[state.currentQuestion].asset,
           question: state.questions[state.currentQuestion].question,
         ),
       ),
       Expanded(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
-          itemCount: state.questions[state.currentQuestion].options.length,
-          itemBuilder: (context, index) => QuizOptionCard(
-            option: state.questions[state.currentQuestion].options[index],
-            onTap: () => state.reply(index),
-          ),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: List.generate(
+              state.questions[state.currentQuestion].options.length, (index) {
+            return Container(
+              margin: EdgeInsets.all(20),
+              child: QuizOptionCard(
+                option: state.questions[state.currentQuestion].options[index],
+                onTap: () => state.reply(index),
+              ),
+            );
+          }),
         ),
       ),
     ]);
