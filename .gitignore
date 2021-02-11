@@ -1,5 +1,5 @@
 # App
-.env*
+.env
 key.properties
 
 # Miscellaneous
