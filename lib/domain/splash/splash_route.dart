@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:app/domain/finish/finish_route.dart';
-import 'package:app/domain/quiz/quiz_route.dart';
+import 'package:app/domain/first/first_route.dart';
 import 'package:app/domain/quiz/repository/quiz_repository_impl.dart';
 import 'package:app/shared/services/hive_service_impl.dart';
 import 'package:app/utils/assets.dart';
@@ -17,7 +17,7 @@ class SplashRoute extends StatefulWidget {
 }
 
 class _SplashRouteState extends State<SplashRoute> {
-  String _initialRoute = QuizRoute.name;
+  String _initialRoute = FirstRoute.name;
 
   @override
   void initState() {
@@ -32,6 +32,7 @@ class _SplashRouteState extends State<SplashRoute> {
   }
 
   Future init() async {
+    //todo ajeitar isso aqui
     final hasQuiz = HiveServiceImpl().get("quiz") != null;
     if (!hasQuiz) {
       await fetchQuiz();

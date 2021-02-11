@@ -19,7 +19,6 @@ class AppContainer extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         routes: Routes.all(),
         initialRoute: SplashRoute.name,
