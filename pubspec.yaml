@@ -14,14 +14,16 @@ dependencies:
   get: ^3.24.0
   dio: ^3.0.10
   path_provider: ^1.6.27
+  provider: ^4.3.3
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   hive_generator: ^0.8.2
-  build_runner:
-  json_serializable:
+  build_runner: ^1.11.1
+  json_serializable: ^3.5.1
+  analyzer:
 
 flutter:
   uses-material-design: true
