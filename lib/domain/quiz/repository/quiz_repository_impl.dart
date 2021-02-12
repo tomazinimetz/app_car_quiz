@@ -3,7 +3,5 @@ import 'package:app/shared/mixins/http_client_mixin.dart';
 
 class QuizRepositoryImpl with HttpClientMixin implements QuizRepository {
   @override
-  Future fetchQuiz() => client.get(
-        '/quiz',
-      );
+  Future fetchQuiz() => client.get('/quiz');
 }
