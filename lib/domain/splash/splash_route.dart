@@ -58,5 +58,9 @@ class _SplashRouteState extends State<SplashRoute> {
         ),
       );
 
-  Future fetchQuiz() async => await QuizServiceImpl().fetchQuiz();
+  Future fetchQuiz() async {
+    try {
+      await QuizServiceImpl().fetchQuiz();
+    } catch (e) {}
+  }
 }

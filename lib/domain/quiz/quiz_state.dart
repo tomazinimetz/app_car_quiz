@@ -1,13 +1,17 @@
 import 'package:app/domain/quiz/models/question_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-
+import '../../shared/services/hive_service_impl.dart';
 import 'models/quiz_model.dart';
 
 class QuizState with ChangeNotifier {
-  QuizState();
+  QuizState() {
+    questions = quiz.questions;
+    currentQuestion = int.parse(quiz.currentQuestion);
+    shuffle();
+  }
 
-  QuizModel quiz;
+  QuizModel quiz = HiveServiceImpl().get('quiz').values.first;
   List<Question> questions;
   int currentQuestion = 0;
   int scoreKeeper = 0;
@@ -16,12 +20,6 @@ class QuizState with ChangeNotifier {
   String get correctAnswer => questions[currentQuestion].answer;
   bool get isFinished => currentQuestion == questions.length;
   double get scorePercentage => (scoreKeeper / questions.length) * 100;
-
-  void init(QuizModel quiz) {
-    questions = quiz.questions;
-    currentQuestion = int.parse(quiz.currentQuestion);
-    shuffle();
-  }
 
   void shuffle() {
     questions.shuffle();
