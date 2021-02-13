@@ -12,8 +12,8 @@ class QuizServiceImpl extends QuizService {
 
   @override
   Future fetchQuiz() async {
-    //var response = await _repository.fetchQuiz();
-    final response = await JsonUtils.parseJson();
+    var response = await _repository.fetchQuiz();
+    //final response = await JsonUtils.parseJson();
     final quiz = QuizModel.fromJson(response);
     await HiveServiceImpl().saveData('quiz', quiz);
   }
