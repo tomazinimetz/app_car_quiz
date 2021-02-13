@@ -10,6 +10,7 @@ import '../repository/quiz_repository.dart';
 class QuizServiceImpl extends QuizService {
   final QuizRepository _repository = GetIt.I.get<QuizRepository>();
 
+   //Para carregar os dados sem uso do backend (com o arquivo data.json) basta comentar a linha 16 e descomentar a linha 17.
   @override
   Future fetchQuiz() async {
     var response = await _repository.fetchQuiz();
